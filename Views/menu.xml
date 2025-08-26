@@ -11,9 +11,5 @@
             parent = "menu_hospital_roof"
             sequence="0"/>
 
-    <menuitem
-            id = "menu_patient"
-            name="Patient"
-            parent="menu_patient_master"
-            sequence="0"/>
+
 </odoo>
