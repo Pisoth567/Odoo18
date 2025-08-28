@@ -2,6 +2,7 @@
 <odoo>
     <menuitem
             id = "menu_hospital_roof"
+            web_icon="om_hospital,static/description/odoo_icon.png"
             name="Hospital"
             sequence="0"/>
 
@@ -10,6 +11,4 @@
             name="Patient Detail"
             parent = "menu_hospital_roof"
             sequence="0"/>
-
-
 </odoo>
