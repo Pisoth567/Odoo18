@@ -1,44 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!--    create form view-->
-<!--    <record id="hospital_patient_view_form" model="ir.ui.view">-->
-<!--        <field name="name">hospital.patient.view.form</field>-->
-<!--        <field name="model">hospital.patient</field>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <form>-->
-<!--                <sheet>-->
-<!--                    <group>-->
-<!--                        <group>-->
-<!--                            <field name="name"/>-->
-<!--                            <field name="age"/>-->
-<!--                        </group>-->
-<!--                        <group>-->
-<!--                            <field name="Gender"/>-->
-<!--                            <field name="address"/>-->
-<!--                        </group>-->
-<!--                    </group>-->
-<!--                </sheet>-->
-<!--            </form>-->
-<!--        </field>-->
-<!--    </record>-->
+    <record id="hospital_patient_view_form" model="ir.ui.view">
+        <field name="name">hospital.patient.view.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                        </group>
+                        <group>
+                            <field name="Gender"/>
+                            <field name="address"/>
+                            <field name="ref"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <!--create_views-->
-        <!--take the model what we want to custom-->
-        <record id="hospital_patient_view_list" model="ir.ui.view">
-            <!--follow by id of the record-->
-            <field name="name">hospital.patient.view.list</field>
-            <!--model name-->
-            <field name="model">hospital.patient</field>
-            <!--architech name for add fields-->
-            <field name="arch" type="xml">
-                <list>
-                    <field name="name" class=""/>
-                    <field name="age" class=""/>
-                    <field name="Gender"/>
-                    <field name="address"/>
-                </list>
-            </field>
-        </record>
+    <!--create search view-->
+    <record id="hospital_patient_search_view" model="ir.ui.view">
+        <field name="name">hospital.patient.search</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Patient Name" filter_domain="['|',('name','ilike',self),('ref','ilike',self)]"/>
+                <field name="ref"/>
+                <field name="age"/>
+                <field name="address"/>
+                <field name="Gender"/>
+                <filter name="filter_male" string="Male" domain="[('Gender', '=' ,'male')]"/>
+                <filter name="filter_female" string="female" domain="[('Gender', '=' ,'female')]"/>
+                <separator/>
+                <filter name="filter_kids" string="kids" domain="[('age', '&lt;=', 5)]" />
+                <separator/>
+                <filter name="filter_archived" string="Archived" domain="[('active', '=', False)]" />
+                <group expand="0" string="Group By" >
+                    <filter string="Name" name="group_by_name"  />
+                    <filter string="Gender" name="group_by_gender" context="{'group_by':'Gender'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--create_list_views-->
+    <!--take the model what we want to custom-->
+    <record id="hospital_patient_view_list" model="ir.ui.view">
+        <!--follow by id of the record-->
+        <field name="name">hospital.patient.view.list</field>
+        <!--model name-->
+        <field name="model">hospital.patient</field>
+        <!--architech name for add fields-->
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" class=""/>
+                <field name="age" class=""/>
+                <field name="ref"/>
+                <field name="Gender"/>
+                <field name="address"/>
+            </list>
+        </field>
+    </record>
 
     <!--create action-->
     <record id="action_hospital_patient" model="ir.actions.act_window">

@@ -9,7 +9,8 @@
     'data':[
         'security/ir.model.access.csv',
         'Views/menu.xml',
-        'Views/patient_view.xml'
+        'Views/patient_view.xml',
+        'Views/female_patient_view.xml',
     ],
     'demo': [],
     'installable': True,
