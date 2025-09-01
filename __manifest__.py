@@ -6,6 +6,7 @@
     'author': 'Master',
     'summary' : "Hospital Management System",
     'description': """Hospital Management System""",
+    'depends': ['mail'],
     'data':[
         'security/ir.model.access.csv',
         'Views/menu.xml',
