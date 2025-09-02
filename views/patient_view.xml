@@ -13,7 +13,7 @@
                             <field name="age"/>
                         </group>
                         <group>
-                            <field name="Gender"/>
+                            <field name="gender"/>
                             <field name="address"/>
                             <field name="ref"/>
                             <!--check active-->
@@ -38,19 +38,19 @@
                 <field name="ref"/>
                 <field name="age"/>
                 <field name="address"/>
-                <field name="Gender"/>
-                <filter name="filter_male" string="Male" domain="[('Gender', '=' ,'male')]"/>
-                <filter name="filter_female" string="female" domain="[('Gender', '=' ,'female')]"/>
+                <field name="gender"/>
+                <filter name="filter_male" string="Male" domain="[('gender', '=' ,'male')]"/>
+                <filter name="filter_female" string="female" domain="[('gender', '=' ,'female')]"/>
                 <separator/>
                 <filter name="filter_kids" string="kids" domain="[('age', '&lt;=', 5)]"/>
                 <separator/>
                 <filter name="filter_archived" string="Archived" domain="[('active', '=', False)]"/>
                 <group expand="0" string="Group By">
                     <filter string="Name" name="group_by_name"/>
-                    <filter string="Gender" name="group_by_gender" context="{'group_by':'Gender'}"/>
+                    <filter string="gender" name="group_by_gender" context="{'group_by':'gender'}"/>
                 </group>
                 <searchpanel>
-                    <field name="Gender" enable_counters="1" icon="fa-intersex" select="multi"/>
+                    <field name="gender" enable_counters="1" icon="fa-intersex" select="multi"/>
                 </searchpanel>
             </search>
 
@@ -71,7 +71,7 @@
                 <field name="name" class=""/>
                 <field name="age" class=""/>
                 <field name="ref"/>
-                <field name="Gender"/>
+                    <field name="gender"/>
                 <field name="address"/>
             </list>
         </field>
@@ -89,7 +89,7 @@
     </record>
     <menuitem
             id="menu_patient"
-            name="Patient"
+            name="Patients"
             action="action_hospital_patient"
             parent="menu_patient_master"
             sequence="0"/>

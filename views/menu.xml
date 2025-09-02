@@ -11,4 +11,9 @@
             name="Patient Detail"
             parent = "menu_hospital_roof"
             sequence="0"/>
+
+    <menuitem id="menu_appointment_master"
+              name="Appointments"
+              parent="menu_hospital_roof"
+              sequence="20"/>
 </odoo>
